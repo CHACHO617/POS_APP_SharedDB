@@ -86,15 +86,6 @@ public class POSService {
                     ps.executeUpdate();
                 }
 
-                // Actualizar inventario
-                String updateInventario = "UPDATE Inventario SET cantidad_disponible = cantidad_disponible - ? WHERE id_producto_inv = ? AND ubicacion_tienda = ?";
-                try (PreparedStatement ps2 = conn.prepareStatement(updateInventario)) {
-                    ps2.setInt(1, cantidad);
-                    ps2.setInt(2, producto_id);
-                    ps2.setString(3, tienda);
-                    ps2.executeUpdate();
-                }
-
                 conn.commit(); // Confirmar los cambios de la transacción
                 System.out.println("✅ Venta realizada exitosamente.");
             } catch (SQLException e) {
