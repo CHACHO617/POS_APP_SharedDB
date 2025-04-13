@@ -52,7 +52,7 @@ public class POSService {
                     tienda = "Cuenca";
                     break;
                 default:
-                    System.out.println("❌ Tienda no válida. Operación cancelada.");
+                    System.out.println(" Tienda no válida. Operación cancelada.");
                     return;
             }
 
@@ -69,10 +69,10 @@ public class POSService {
                     ResultSet rs = checkStmt.executeQuery();
 
                     if (!rs.next()) {
-                        System.out.println("❌ El producto no está disponible en esa ubicación.");
+                        System.out.println("El producto no está disponible en esa ubicación.");
                         return;
                     } else if (rs.getInt("cantidad_disponible") < cantidad) {
-                        System.out.println("❌ Stock insuficiente en esa tienda.");
+                        System.out.println("Stock insuficiente en esa tienda.");
                         return;
                     }
                 }
